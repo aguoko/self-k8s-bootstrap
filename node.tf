@@ -12,7 +12,7 @@ terraform {
   backend "s3" {
     bucket         = "ikenna-k8s-tfstate"
     dynamodb_table = "k8s-state"
-    key            = "ikeID"
+    key            = "LockID"
     region         = "eu-west-2"
     profile        = "Muna"
   }
