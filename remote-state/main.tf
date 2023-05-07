@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "terraform_state" {
   bucket = "ikenna-k8s-tfstate"
      
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
@@ -23,10 +23,10 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
   name           = "k8s-state"
   read_capacity  = 1
   write_capacity = 1
-  hash_key       = "ikeID"
+  hash_key       = "LockID"
 
   attribute {
-    name = "ikeID"
+    name = "LockID"
     type = "S"
   }
 }
